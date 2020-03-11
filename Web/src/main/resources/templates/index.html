@@ -14,9 +14,9 @@
 			<td>no</td>
 			<td>ID</td>
 		</tr>
-		<tr>
-			<td th:></td>
-			<td></td>
+		<tr th:each="list : ${memberList}">
+			<td th:text="${list.memberID}"></td>
+			<td th:text="${list.memberNo}"></td>
 		</tr>
 	</table>
 </body>
