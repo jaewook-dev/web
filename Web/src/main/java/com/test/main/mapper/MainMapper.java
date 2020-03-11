@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.test.main.dto.Member;
 
 @Mapper
-public interface MemberMapper {
+public interface MainMapper {
 
 	public List<Member> getMemberList();
 	
