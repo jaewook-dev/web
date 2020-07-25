@@ -2,7 +2,7 @@ package com.test.main.dto;
 
 public class BoardInfDTO {
 
-	// DTO 변수 선언
+	// 변수 선언
 	private String sBoardNO;
 	private String sBoardName;
 	private String sBoardServer;
