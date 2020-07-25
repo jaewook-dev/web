@@ -1,13 +1,12 @@
 package com.test.main.controller;
 
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.test.main.service.MainService;
 
@@ -20,7 +19,7 @@ public class MainController {
 	private MainService mainService;
 	
 	@GetMapping("/")
-	public String index(Model model){
+	public String signIn(Model model){
 		
 		/*
 		 * List<Member> memberList = mainService.getMemberList();
@@ -33,5 +32,15 @@ public class MainController {
 		logger.info("----------------");
 		
 		return "signin";
+	}
+	
+	@PostMapping("/")
+	public String signIn() {
+		return "signin";
+	}
+	
+	@PostMapping("index")
+	public String index() {
+		return "index";
 	}
 }

@@ -70,7 +70,7 @@
 	</style>
 </head>
 <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" method="post" action="index">
       	<input type="text" id="inputID" class="form-control" placeholder="ID" required autofocus>
       	<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
       	<hr>
@@ -90,14 +90,25 @@
 	            </div>
 	            <!-- Modal body -->
 	            <div class="modal-body text-center">
+	            	<form action="/" method="post">
       				<input type="text" id="inputID" class="form-control" placeholder="ID" required autofocus>
       				<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
       				<input type="password" id="checkPassword" class="form-control" placeholder="비밀번호 재확인" required>
 	            	<hr>
       				<input type="text" id="inputBoardName" class="form-control" placeholder="구단주명" required>
-      				<input type="text" id="inputServer" class="form-control" placeholder="서버명" required>
+      				<div class="form-group">
+						<select class="form-control" id="inputServer">
+							<option value="" selected disabled hidden >서버</option>
+							<option value="serverPB">플레이볼</option>
+							<option value="serverPR">페넌트레이스</option>
+							<option value="serverWN">위너스</option>
+							<option value="serverGS">그랜드슬램</option>
+							<option value="serverTH">타이틀홀더</option>
+						</select>
+					</div>
 	            	<br>
 	            	<button class="btn btn-lg btn-primary btn-block" type="submit">생성</button>
+	            	</form>
 	            </div>
 	            <!-- Modal footer -->
 	            <div class="modal-footer">
