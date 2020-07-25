@@ -63,19 +63,50 @@
 		  border-top-left-radius: 0;
 		  border-top-right-radius: 0;
 		}
-		
+		.modal { 
+			top : 15%; 
+		}
+
 	</style>
 </head>
 <body class="text-center">
     <form class="form-signin">
-      	<label for="inputEmail" class="sr-only">ID</label>
-      		<input type="email" id="inputEmail" class="form-control" placeholder="ID" required autofocus>
-      	<label for="inputPassword" class="sr-only">Password</label>
-      		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      	<input type="text" id="inputID" class="form-control" placeholder="ID" required autofocus>
+      	<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
       	<hr>
       	<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
       	<br>
-      	<a href="" class="mt-5 mb-3 text-muted">ID 생성하기</a>
+      	<a data-toggle="modal" href="#modal" class="mt-5 mb-3 text-muted">ID 생성하기</a>
     </form>
- </body>
+    
+    <!-- The Modal -->
+	<div class="modal fade" id="modal">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <!-- Modal Header -->
+	            <div class="modal-header">
+	                <h5 class="modal-title"> ID 생성하기 </h5>
+	                <button type="button" class="close" data-dismiss="modal">×</button>
+	            </div>
+	            <!-- Modal body -->
+	            <div class="modal-body text-center">
+      				<input type="text" id="inputID" class="form-control" placeholder="ID" required autofocus>
+      				<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
+      				<input type="password" id="checkPassword" class="form-control" placeholder="비밀번호 재확인" required>
+	            	<hr>
+      				<input type="text" id="inputBoardName" class="form-control" placeholder="구단주명" required>
+      				<input type="text" id="inputServer" class="form-control" placeholder="서버명" required>
+	            	<br>
+	            	<button class="btn btn-lg btn-primary btn-block" type="submit">생성</button>
+	            </div>
+	            <!-- Modal footer -->
+	            <div class="modal-footer">
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</body>
+<script>
+	
+</script>
 </html>
