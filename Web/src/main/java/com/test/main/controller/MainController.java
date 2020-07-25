@@ -32,6 +32,6 @@ public class MainController {
 		
 		logger.info("----------------");
 		
-		return "index";
+		return "signin";
 	}
 }
