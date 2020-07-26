@@ -31,7 +31,8 @@ public class MainController {
 		
 		logger.info("----------------");
 		
-		return "signin";
+//		return "signin";
+		return "insertPlayer";
 	}
 	
 	@PostMapping("/")
@@ -39,8 +40,8 @@ public class MainController {
 		return "signin";
 	}
 	
-	@PostMapping("index")
+	@PostMapping("/insertPlayer")
 	public String index() {
-		return "index";
+		return "insertPlayer";
 	}
 }
