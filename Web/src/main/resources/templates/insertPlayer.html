@@ -36,7 +36,7 @@
 
 </style>
 <!-- Custom styles for this template -->
-<link href="form-validation.css" rel="stylesheet">
+<!-- <link href="form-validation.css" rel="stylesheet"> -->
 </head>
 <body class="bg-light">
 	<div class="container">
@@ -54,20 +54,25 @@
 	  		<table class="table table-striped text-center">
 	  			<h2>타자</h2>
 	    		<tr>
-	    			<td width="10%">포지션</td>
+	    			<td width="8%">포지션</td>
+	    			<td width="7%">연도</td>
 	    			<td width="10%">선수 등급</td>
 	    			<td width="10%">선수 이름</td>
 	    			<td width="10%">선수 타입</td>
 	    			<td width="10%">선호 타순</td>
 	    			<td width="10%">앨범 레벨</td>
-	    			<td width="10%">부 포지션</td>
 	    			<td width="10%">나이</td>
+	    			<td width="10%">부 포지션</td>
+	    			<td width="15%"></td>
 	    		</tr>
 	    		<tr>
 	    			<td>
 	    				포수 <input type="hidden" id="playerPosition" value="C"> 
 	    			</td>
 	    			<td>
+	    				<input type="text" id="playerYear" class="form-control" maxlength="2">
+	    			</td>
+	    			<td>
 	    				<select class="form-control" id="playerGrade">
 	    					<option value="hof">HOF</option>
 							<option value="legend">레전드</option>
@@ -111,15 +116,31 @@
 	    				</select>
 	    			</td>
 	    			<td>
+	    				<input type="text" id="playerAge" class="form-control">
+	    			</td>
+	    			<td>
 	    				
 	    			</td>
 	    			<td>
-	    				<input type="text" id="playerAge" class="form-control">
+	    				<div>
+		    				<button id="saveBtn" 
+		    						class="btn btn-primary" 
+		    						type="button"
+		    						style="width:45%;float:left">저장</button>
+		    				<button id="modifyBtn" 
+		    						class="btn btn-primary" 
+		    						type="button"
+		    						style="width:45%;float:right">수정</button>
+	    				</div>
+	    				
 	    			</td>
 	    		</tr>
-	    		<tr>
+				<tr>
 	    			<td>
-	    				1루 <input type="hidden" id="playerPosition" value="1B">
+	    				1B <input type="hidden" id="playerPosition" value="1B"> 
+	    			</td>
+	    			<td>
+	    				<input type="text" id="playerYear" class="form-control" maxlength="2">
 	    			</td>
 	    			<td>
 	    				<select class="form-control" id="playerGrade">
@@ -165,14 +186,27 @@
 	    				</select>
 	    			</td>
 	    			<td>
+	    				<input type="text" id="playerAge" class="form-control">
+	    			</td>
+	    			<td>
 	    				
 	    			</td>
 	    			<td>
-	    				<input type="text" id="playerAge" class="form-control">
+	    				<div>
+		    				<button id="saveBtn" 
+		    						class="btn btn-primary" 
+		    						type="button"
+		    						style="width:45%;float:left">저장</button>
+		    				<button id="modifyBtn" 
+		    						class="btn btn-primary" 
+		    						type="button"
+		    						style="width:45%;float:right">수정</button>
+	    				</div>
+	    				
 	    			</td>
-	    		</tr>	
+	    		</tr>
 	  		</table>
-	  		<button class="btn btn-lg btn-primary btn-block" type="submit">저장</button>
+	  		<button class="btn btn-lg btn-primary btn-block" type="button">저장</button>
   		</form>
 		</div>
 		<div class="row">
@@ -378,13 +412,41 @@
 			</ul>
 		</footer>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-	<script src="/docs/4.5/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"
-		crossorigin="anonymous"></script>
-	<script src="form-validation.js"></script>
+	<script type="text/javascript">
+		$("#saveBtn").click(function(){ 
+				
+			var str = ""
+			var tdArr = new Array();	// 배열 선언
+			var saveBtn = $(this);
+				
+				// checkBtn.parent() : checkBtn의 부모는 <td>이다.
+				// checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
+				var tr = saveBtn.parent().parent();
+				var td = saveBtn.parent();
+				
+				console.log("클릭한 Row의 모든 데이터 : "+tr.text());
+				
+				var no = td.eq(0).val();
+				var userid = td.eq(1).val();
+				var name = td.eq(2).text();
+				var email = td.eq(3).text();
+				
+				console.log(userid);
+				
+			
+/* 			var aRow = {
+				pos : $("#playerPosition").val(),
+				grade : $("#playerGrade").val(),
+				type : $("#playerType").val(),
+				name : $("#playerName").val(),
+				order : $("#playerOrder").val(),
+				level : $("#playerLevel").val(),
+				age : $("#playerAge").val()
+			}
+
+			console.log(aRow); */
+
+		})
+	</script>
 </body>
 </html>
