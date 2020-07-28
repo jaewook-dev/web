@@ -8,7 +8,8 @@
    
 	<!-- Optional JavaScript -->
    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
    
@@ -124,7 +125,7 @@
 	    			<td>
 	    				<div>
 		    				<button id="saveBtn" 
-		    						class="btn btn-primary" 
+		    						class="btn btn-primary saveBtn" 
 		    						type="button"
 		    						style="width:45%;float:left">저장</button>
 		    				<button id="modifyBtn" 
@@ -137,7 +138,7 @@
 	    		</tr>
 				<tr>
 	    			<td>
-	    				1B <input type="hidden" id="playerPosition" value="1B"> 
+	    				1루수 <input type="hidden" id="playerPosition" value="1B"> 
 	    			</td>
 	    			<td>
 	    				<input type="text" id="playerYear" class="form-control" maxlength="2">
@@ -174,15 +175,15 @@
 	    			</td>
 	    			<td>
 	    				<select class="form-control" id="playerLevel">
-	    					<option value="level1">1</option>
-							<option value="level2">2</option>
-							<option value="level3">3</option>
-							<option value="level4">4</option>
-							<option value="level5">5</option>
-							<option value="level6">6</option>
-							<option value="level7">7</option>
-							<option value="level8">8</option>
-							<option value="level9">9</option>
+	    					<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
 	    				</select>
 	    			</td>
 	    			<td>
@@ -194,7 +195,7 @@
 	    			<td>
 	    				<div>
 		    				<button id="saveBtn" 
-		    						class="btn btn-primary" 
+		    						class="btn btn-primary saveBtn" 
 		    						type="button"
 		    						style="width:45%;float:left">저장</button>
 		    				<button id="modifyBtn" 
@@ -412,40 +413,53 @@
 			</ul>
 		</footer>
 	</div>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript">
-		$("#saveBtn").click(function(){ 
-				
-			var str = ""
-			var tdArr = new Array();	// 배열 선언
-			var saveBtn = $(this);
-				
-				// checkBtn.parent() : checkBtn의 부모는 <td>이다.
-				// checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
-				var tr = saveBtn.parent().parent();
-				var td = saveBtn.parent();
-				
-				console.log("클릭한 Row의 모든 데이터 : "+tr.text());
-				
-				var no = td.eq(0).val();
-				var userid = td.eq(1).val();
-				var name = td.eq(2).text();
-				var email = td.eq(3).text();
-				
-				console.log(userid);
-				
-		
-				
-/* 			var aRow = {
-				pos : $("#playerPosition").val(),
-				grade : $("#playerGrade").val(),
-				type : $("#playerType").val(),
-				name : $("#playerName").val(),
-				order : $("#playerOrder").val(),
-				level : $("#playerLevel").val(),
-				age : $("#playerAge").val()
-			}
+		$(".saveBtn").click(function(){ 
 
-			console.log(aRow); */
+			var tr = $(this).closest('tr');
+			var td = tr.children();
+			
+			var aTableRow = new Array();
+			
+			td.each(function(i){	
+				aTableRow.push(td.eq(i).children().val());
+			});
+			
+			//console.log(aTableRow);
+			
+			$.ajax({
+		        url:"/insertPlayer",
+		        type:'POST',
+		        data: aTableRow,
+		        error:function(jqXHR, textStatus, errorThrown){
+		            alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+		            self.close();
+		        }
+		    });
+			
+            // ajax 호출을 위한 정보 기입
+/*             var request = $.ajax({
+              url: "/insertPlayer", // 호출 url
+              method: "POST", // 전송방식
+              data: aTableRow, // 파라미터
+              dataType: "text" // 전송 받을 타입 ex) xml, html, text, json
+            });
+             
+            // 호출 정상일 시 실행되는 메서드
+            request.done(function( data ) {
+              console.log(aTableRow);
+            });
+ 
+            // 호출 에러일 시 실행되는 메서드
+            request.fail(function( jqXHR, textStatus ) {
+              alert( "Request failed: " + textStatus );
+            });
+ 
+            // 호출 정상 또는 에러 상관없이 실행
+            request.always(function() {
+                console.log('완료');
+            }); */
 
 		})
 	</script>
