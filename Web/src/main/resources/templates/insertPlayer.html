@@ -5,14 +5,14 @@
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-   
+
 	<!-- Optional JavaScript -->
    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
    	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-   
+
    	<title>TEST</title>
 	<style>
 	.bd-placeholder-img {
@@ -428,21 +428,27 @@
 			
 			//console.log(aTableRow);
 			
-			$.ajax({
+			/* $.ajax({
 		        url:"/insertPlayer",
 		        type:'POST',
-		        data: aTableRow,
+		        traditional : true,
+		        data : {
+		            player : aTableRow
+		        },
 		        error:function(jqXHR, textStatus, errorThrown){
 		            alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
 		            self.close();
 		        }
-		    });
+		    }); */
 			
             // ajax 호출을 위한 정보 기입
-/*             var request = $.ajax({
+            var request = $.ajax({
               url: "/insertPlayer", // 호출 url
               method: "POST", // 전송방식
-              data: aTableRow, // 파라미터
+              traditional : true,
+              data: {
+            	  data : aTableRow // 파라미터
+              },
               dataType: "text" // 전송 받을 타입 ex) xml, html, text, json
             });
              
@@ -459,7 +465,7 @@
             // 호출 정상 또는 에러 상관없이 실행
             request.always(function() {
                 console.log('완료');
-            }); */
+            }); 
 
 		})
 	</script>

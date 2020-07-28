@@ -1,12 +1,24 @@
 package com.test.main.controller;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.test.main.service.MainService;
 
@@ -40,8 +52,25 @@ public class MainController {
 		return "signin";
 	}
 	
-	@PostMapping("/insertPlayer")
-	public String index() {
-		return "insertPlayer";
-	}
+    @RequestMapping(value = "/insertPlayer", produces = "application/text")
+    public @ResponseBody String player(ModelMap model, HttpServletRequest request, 
+    		HttpServletResponse response, HttpSession session){
+        
+    	String[] param = request.getParameterValues("data");
+    	String player = param[0].toString();
+
+    	System.out.println(Arrays.toString(param));
+    	
+        return "insertPlayer";
+    }
+	
+	/*
+	 * @PostMapping("/insertPlayer") public String index(HttpServletRequest request)
+	 * {
+	 * 
+	 * String[] ajaxMsg = request.getParameterValues("player");
+	 * System.out.println(ajaxMsg);
+	 * 
+	 * return "insertPlayer"; }
+	 */
 }
