@@ -3,32 +3,32 @@ package com.test.main.dto;
 public class MemberPlayerDTO {
 
 	// 변수 선언
-	private String sPlayerNO;
-	private String sMemberNO;
+	private int iPlayerNO;
+	private int iMemberNO;
 	private String sPlayerDivision;
 	private String sPlayerName;
-	private String sPlayerYear;
+	private int iPlayerYear;
 	private String sPlayerType;
 	private String sPlayerBattingOrder;
-	private String sPlayerAge;
-	private String sPlayerLevel;
+	private int iPlayerAge;
+	private int iPlayerLevel;
 	private String sPlayerPositionMain;
 	private String sPlayerPositionSub;
 	private String sPlayerClass;
 	private String sPlayerTeam;
 	private String sPlayerOverall;
 	
-	public String getsPlayerNO() {
-		return sPlayerNO;
+	public int getiPlayerNO() {
+		return iPlayerNO;
 	}
-	public void setsPlayerNO(String sPlayerNO) {
-		this.sPlayerNO = sPlayerNO;
+	public void setiPlayerNO(int iPlayerNO) {
+		this.iPlayerNO = iPlayerNO;
 	}
-	public String getsMemberNO() {
-		return sMemberNO;
+	public int getiMemberNO() {
+		return iMemberNO;
 	}
-	public void setsMemberNO(String sMemberNO) {
-		this.sMemberNO = sMemberNO;
+	public void setiMemberNO(int iMemberNO) {
+		this.iMemberNO = iMemberNO;
 	}
 	public String getsPlayerDivision() {
 		return sPlayerDivision;
@@ -42,11 +42,11 @@ public class MemberPlayerDTO {
 	public void setsPlayerName(String sPlayerName) {
 		this.sPlayerName = sPlayerName;
 	}
-	public String getsPlayerYear() {
-		return sPlayerYear;
+	public int getiPlayerYear() {
+		return iPlayerYear;
 	}
-	public void setsPlayerYear(String sPlayerYear) {
-		this.sPlayerYear = sPlayerYear;
+	public void setiPlayerYear(int iPlayerYear) {
+		this.iPlayerYear = iPlayerYear;
 	}
 	public String getsPlayerType() {
 		return sPlayerType;
@@ -60,17 +60,17 @@ public class MemberPlayerDTO {
 	public void setsPlayerBattingOrder(String sPlayerBattingOrder) {
 		this.sPlayerBattingOrder = sPlayerBattingOrder;
 	}
-	public String getsPlayerAge() {
-		return sPlayerAge;
+	public int getiPlayerAge() {
+		return iPlayerAge;
 	}
-	public void setsPlayerAge(String sPlayerAge) {
-		this.sPlayerAge = sPlayerAge;
+	public void setiPlayerAge(int iPlayerAge) {
+		this.iPlayerAge = iPlayerAge;
 	}
-	public String getsPlayerLevel() {
-		return sPlayerLevel;
+	public int getiPlayerLevel() {
+		return iPlayerLevel;
 	}
-	public void setsPlayerLevel(String sPlayerLevel) {
-		this.sPlayerLevel = sPlayerLevel;
+	public void setiPlayerLevel(int iPlayerLevel) {
+		this.iPlayerLevel = iPlayerLevel;
 	}
 	public String getsPlayerPositionMain() {
 		return sPlayerPositionMain;
