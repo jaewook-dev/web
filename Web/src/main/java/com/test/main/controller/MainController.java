@@ -57,8 +57,9 @@ public class MainController {
     		HttpServletResponse response, HttpSession session){
         
     	String[] param = request.getParameterValues("data");
-    	String player = param[0].toString();
-
+    	String playerGubun = param[0].toString();
+    	String playerPosition = param[1].toString();
+    	
     	System.out.println(Arrays.toString(param));
     	
         return "insertPlayer";
