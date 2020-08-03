@@ -692,7 +692,7 @@
 	    			<td width="12%">선수 등급</td>
 	    			<td width="10%">선수 이름</td>
 	    			<td width="12%">선수 타입</td>
-	    			<td width="10%">선호 타순</td>
+	    			<td width="10%">주 포지션</td>
 	    			<td width="7%">앨범</td>
 	    			<td width="6%">나이</td>
 	    			<td width="10%">특수 능력</td>
@@ -732,10 +732,15 @@
 	    				</select>
 	    			</td>
 	    			<td>
-	    				<select class="form-control" id="playerOrder">
-	    					<option value="upper">상위</option>
-							<option value="cleanup">클린업</option>
-							<option value="lower">하위</option>
+	    				<select class="form-control" id="playerMainPosition">
+	    					<option value="C">포수</option>
+							<option value="1B">1루수</option>
+							<option value="2B">2루수</option>
+							<option value="3B">3루수</option>
+							<option value="SS">유격수</option>
+							<option value="LF">좌익수</option>
+							<option value="CF">중견수</option>
+							<option value="RF">우익수</option>
 	    				</select>
 	    			</td>
 	    			<td>
@@ -756,8 +761,8 @@
 	    			</td>
 	    			<td>
 	    				<select class="form-control" id="playerAbility">
-	    					<option value="abilCheer">익힘내라</option>
-							<option value="abilHomerun">레힘내라</option>
+	    					<option value="abilCheer">익내라</option>
+							<option value="abilHomerun">레내라</option>
 							<option value="abilIn">레내야</option>
 							<option value="abilOut">레외야</option>
 							<option value="abilAnchor">레지주</option>
@@ -831,8 +836,8 @@
 	    			</td>
 	    			<td>
 	    				<select class="form-control" id="playerAbility">
-	    					<option value="abilCheer">익힘내라</option>
-							<option value="abilHomerun">레힘내라</option>
+	    					<option value="abilCheer">익내라</option>
+							<option value="abilHomerun">레내라</option>
 							<option value="abilIn">레내야</option>
 							<option value="abilOut">레외야</option>
 							<option value="abilAnchor">레지주</option>
@@ -906,8 +911,8 @@
 	    			</td>
 	    			<td>
 	    				<select class="form-control" id="playerAbility">
-	    					<option value="abilCheer">익힘내라</option>
-							<option value="abilHomerun">레힘내라</option>
+	    					<option value="abilCheer">익내라</option>
+							<option value="abilHomerun">레내라</option>
 							<option value="abilIn">레내야</option>
 							<option value="abilOut">레외야</option>
 							<option value="abilAnchor">레지주</option>
@@ -981,8 +986,8 @@
 	    			</td>
 	    			<td>
 	    				<select class="form-control" id="playerAbility">
-	    					<option value="abilCheer">익힘내라</option>
-							<option value="abilHomerun">레힘내라</option>
+	    					<option value="abilCheer">익내라</option>
+							<option value="abilHomerun">레내라</option>
 							<option value="abilIn">레내야</option>
 							<option value="abilOut">레외야</option>
 							<option value="abilAnchor">레지주</option>
@@ -1056,8 +1061,8 @@
 	    			</td>
 	    			<td>
 	    				<select class="form-control" id="playerAbility">
-	    					<option value="abilCheer">익힘내라</option>
-							<option value="abilHomerun">레힘내라</option>
+	    					<option value="abilCheer">익내라</option>
+							<option value="abilHomerun">레내라</option>
 							<option value="abilIn">레내야</option>
 							<option value="abilOut">레외야</option>
 							<option value="abilAnchor">레지주</option>
@@ -1379,6 +1384,7 @@
 	</div>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript">
+	
 		$(".saveBtn").click(function(){ 
 
 			var tr = $(this).closest('tr');
