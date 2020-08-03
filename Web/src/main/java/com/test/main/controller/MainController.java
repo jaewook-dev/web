@@ -56,11 +56,19 @@ public class MainController {
     public @ResponseBody String player(ModelMap model, HttpServletRequest request, 
     		HttpServletResponse response, HttpSession session){
         
-    	String[] param = request.getParameterValues("data");
-    	String playerGubun = param[0].toString();
-    	String playerPosition = param[1].toString();
+    	String[] aParam = request.getParameterValues("data");
     	
-    	System.out.println(Arrays.toString(param));
+    	/*
+    	String sMemberName = aParam[0].toString();
+    	String sPlayerGubun = aParam[1].toString();
+    	String sPlayerPosition = aParam[2].toString();
+    	String sPlayerYear = aParam[3].toString();
+    	String sPlayerGrade	= aParam[4].toString();
+    	String sPlayerName = aParam[5].toString();
+    	*/
+    	
+    	
+    	System.out.println(Arrays.toString(aParam));
     	
         return "insertPlayer";
     }

@@ -1390,23 +1390,39 @@
 			var tr = $(this).closest('tr');
 			var td = tr.children();
 			
-			var aTableRow = new Array();
+			var aTableRow = {
+				memberName : $("#memberName").val(),
+				playerGubun : td.children().find($('#playerGubun').val()).selector,
+				playerMainPosition : td.children().find($('#playerMainPosition').val()).selector,
+				playerGrade : td.children().find($('#playerGrade').val()).selector
+				
+			}
+			
+			//var sTest = td.children().find($('#playerGubun').val()).selector;
 
-			aTableRow.push($("#memberName").val());
+			/* aTableRow.push($("#memberName").val());
 			
 			td.each(function(i){	
 				aTableRow.push(td.eq(i).children().val());
-			});
+			}); */
 			
             // ajax 호출을 위한 정보 기입
             var request = $.ajax({
-              url: "/insertPlayer", // 호출 url
-              method: "POST", // 전송방식
-              traditional : true,
-              data: {
-            	  data : aTableRow // 파라미터
-              },
-              dataType: "text" // 전송 받을 타입 ex) xml, html, text, json
+            	
+        		type : "POST",
+        		url : "/insertPlayer", 
+        		traditional : true,
+        		dataType : "json",
+        		//contentType : 'application/json',
+        		data : JSON.stringify(aTableRow)
+            	
+	            /* url: "/insertPlayer", // 호출 url
+	            method: "POST", // 전송방식
+	            traditional : true,
+	            data: {
+	          	  data : aTableRow // 파라미터
+	            },
+	            dataType: "text" // 전송 받을 타입 ex) xml, html, text, json */
             });
              
             // 호출 정상일 시 실행되는 메서드
