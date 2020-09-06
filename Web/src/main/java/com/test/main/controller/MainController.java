@@ -58,16 +58,6 @@ public class MainController {
         
     	String[] aParam = request.getParameterValues("data");
     	
-    	/*
-    	String sMemberName = aParam[0].toString();
-    	String sPlayerGubun = aParam[1].toString();
-    	String sPlayerPosition = aParam[2].toString();
-    	String sPlayerYear = aParam[3].toString();
-    	String sPlayerGrade	= aParam[4].toString();
-    	String sPlayerName = aParam[5].toString();
-    	*/
-    	
-    	
     	System.out.println(Arrays.toString(aParam));
     	
         return "insertPlayer";
