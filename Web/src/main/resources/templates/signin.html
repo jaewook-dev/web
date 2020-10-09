@@ -8,7 +8,7 @@
    
 	<!-- Optional JavaScript -->
    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
    
@@ -90,24 +90,24 @@
 	            </div>
 	            <!-- Modal body -->
 	            <div class="modal-body text-center">
-	            	<form action="/" method="post">
-      				<input type="text" id="inputID" class="form-control" placeholder="ID" required autofocus>
-      				<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
-      				<input type="password" id="checkPassword" class="form-control" placeholder="비밀번호 재확인" required>
-	            	<hr>
-      				<input type="text" id="inputBoardName" class="form-control" placeholder="구단주명" required>
-      				<div class="form-group">
-						<select class="form-control" id="inputServer">
-							<option value="NN" selected disabled hidden >서버</option>
-							<option value="PB">플레이볼</option>
-							<option value="PR">페넌트레이스</option>
-							<option value="WN">위너스</option>
-							<option value="GS">그랜드슬램</option>
-							<option value="TH">타이틀홀더</option>
-						</select>
-					</div>
-	            	<br>
-	            	<button class="btn btn-lg btn-primary btn-block" type="submit">생성</button>
+	            	<form>
+	      				<input type="text" id="insertID" class="form-control" placeholder="ID" required autofocus>
+	      				<input type="password" id="insertPW" class="form-control" placeholder="비밀번호" required>
+	      				<input type="password" id="checkPW" class="form-control" placeholder="비밀번호 재확인" required>
+		            	<hr>
+	      				<input type="text" id="insertMemberName" class="form-control" placeholder="구단주명" required>
+	      				<div class="form-group">
+							<select class="form-control" id="insertServer">
+								<option value="NN" selected disabled hidden >서버</option>
+								<option value="PB">플레이볼</option>
+								<option value="PR">페넌트레이스</option>
+								<option value="WN">위너스</option>
+								<option value="GS">그랜드슬램</option>
+								<option value="TH">타이틀홀더</option>
+							</select>
+						</div>
+		            	<br>
+		            	<button class="btn btn-lg btn-primary btn-block" type="button" id="createBtn">생성</button>
 	            	</form>
 	            </div>
 	            <!-- Modal footer -->
@@ -117,7 +117,49 @@
 	    </div>
 	</div>
 </body>
-<script>
-	
+<script type="text/javascript">
+	$('#createBtn').click(function() {
+		
+		var sInsertID = $('#insertID').val();
+        var sInsertPW = $('#insertPW').val();
+        var sCheckPW = $('#checkPW').val();
+        var sInsertMemberName = $('#insertMemberName').val();
+        var sInsertServer = $('#insertServer').val();
+
+        if(sInsertID == null || sInsertID.trim().length == 0) {
+        	alert("ID를 입력해주세요");
+        	$('#insertID').val('');
+        	$('#insertID').focus();
+        	return;
+        }
+        
+        if(sInsertPW != sCheckPW) {
+        	alert("비밀번호가 일치하지 않아요");
+        	$('#insertPW').val('');
+        	$('#checkPW').val('');
+        	$('#insertPW').focus();
+        	return;
+        }
+        
+        if(sInsertMemberName == null || sInsertMemberName.trim().length == 0) {
+        	alert("구단주명을 입력해주세요");
+        	$('#insertMemberName').val('');
+        	return;
+        }
+        
+        if(sInsertServer == null) {
+        	alert("서버를 입력해주세요.");
+        	return;
+        }
+        
+       	// ajax 호출을 위한 정보 기입
+        var request = $.ajax({
+    		type : "POST",
+    		url: "/createMember", // 호출 URL
+    		traditional : true,
+    		dataType : "text",
+           	data: {sInsertID, sInsertPW, sInsertMemberName, sInsertServer} // 파라미터
+        });
+	})
 </script>
 </html>

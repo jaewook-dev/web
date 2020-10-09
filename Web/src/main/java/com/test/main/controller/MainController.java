@@ -43,8 +43,8 @@ public class MainController {
 		
 		logger.info("----------------");
 		
-//		return "signin";
-		return "insertPlayer";
+		return "signin";
+//		return "insertPlayer";
 	}
 	
 	@PostMapping("/")
@@ -61,6 +61,16 @@ public class MainController {
     	System.out.println(Arrays.toString(aParam));
     	
         return "insertPlayer";
+    }
+    
+    @RequestMapping(value = "/createMember") // 응답 URL
+    public @ResponseBody int adminCheck(String sInsertID, String sInsertPW, String sInsertMemberName, String sInsertServer) {
+        
+//    	int iResult = mainService
+        //int result = spendService.spendAdminCheck(shopCode, memberBirth, adminPw); // DB 조회
+        System.out.println(sInsertID + sInsertPW + sInsertMemberName + sInsertServer);
+            
+        return 1;
     }
 	
 	/*

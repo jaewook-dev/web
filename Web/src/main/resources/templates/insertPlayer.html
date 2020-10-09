@@ -1387,8 +1387,16 @@
 	
 		$(".saveBtn").click(function(){ 
 
-			var tr = $(this).closest('tr');
+			var tr = $(this).parent().parent();
+			console.log(tr);
 			var td = tr.children();
+			console.log(td);
+			
+			var playerGubun = td.find($('#playerGubun').val()).selector;
+			var playerMainPosition = td.find($('#playerMainPosition').val()).selector;
+			
+			console.log(playerGubun);
+			console.log(playerMainPosition);
 			
 			var aTableRow = {
 				memberName : $("#memberName").val(),
@@ -1402,6 +1410,8 @@
 				playerAge : td.children().find($('#playerAge').val()).selector,
 				playerSubPosition : td.children().find($('#playerSubPosition').val()).selector
 			}
+			
+			console.log(aTableRow);
 			
             // ajax 호출을 위한 정보 기입
             var request = $.ajax({
